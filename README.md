@@ -29,14 +29,7 @@
 
 ### Invalid token function (or something similar)
   - Make sure your node is updated, you need at LEAST version 8.0.0!
-
-### `stdout maxBuffer exceeded` or some XML/CSV parse error
-  - This is due to an outdated library which tries to help with Windows support
-  - Go to node_modules, go to wintools, go to lib
-  - Open ps.js
-  - On line 11, replace the whole line with:
-  `exec('wmic process list /format:csv', {maxBuffer: 2000*1024}, function (err, stdout, stderr) {`
-
+  
 ### How to run in the background
   - Install pm2 `npm i pm2 -g`
   - Start the app `pm2 start app.js --name="spoticord"`
