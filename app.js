@@ -11,7 +11,7 @@ const rpc = new DiscordRPC.Client({ transport: keys.rpcTransportType }),
       appClient = keys.appClientID,
       largeImageKey = keys.imageKeys.large,
       fm = require('lastfm').LastFmNode;
-      lastFm = new fm({ api_key: keys.lastFmKey, secret: keys.lastFmSecret, useragent: 'fmcord v0.0.1' })
+      lastFm = new fm({ api_key: keys.lastFmKey, secret: keys.lastFmSecret, useragent: 'fmcord v0.0.1' }),
       smallImageKey = keys.imageKeys.small;
 
 var songEmitter = new events.EventEmitter(),
