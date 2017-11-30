@@ -9,8 +9,8 @@
 
 ## Setup
 
-  - Clone the repo `git clone https://github.com/nations/spoticord.git`
-  - Install the modules `npm i` or `yarn`
+  - Clone the repo `git clone https://github.com/69/fmcord.git`
+  - Install the modules `npm i`
   - Open Discord
   - Set your last.fm username in the `keys.json` file
   - Start the RPC app `node app.js`
