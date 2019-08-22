@@ -1,11 +1,11 @@
-# fmcord `0.0.1`
+# fmcord `0.0.2`
 **Display your current Last.FM song on Discord using the RPC API:**
 ![N|Solid](https://i.imgur.com/MXj59IH.png)
 
 ## Dependencies
   - NodeJS >=8
   - npm (>=5)
-  - Discord Canary (preferred)
+  - Discord
 
 ## Setup
 
