@@ -11,15 +11,17 @@ const rpc = new DiscordRPC.Client({ transport: keys.rpcTransportType }),
 if(!keys.lastFmUsername) { log.error("Your last.fm username isn't set! Please set it in your keys.json file."); process.exit(0); }
 var trackStream = lastFm.stream(keys.lastFmUsername);
 
+
 trackStream.on('nowPlaying', song => {
+  if(!song) return;
   rpc.setActivity({
     details: `🎵  ${song.name}`,
     state: `👤  ${song.artist["#text"]}`,
-		largeImageKey: keys.imageKeys.large,
+    largeImageKey: keys.imageKeys.large,
     smallImageKey: keys.imageKeys.small,
     largeImageText: `⛓  ${song.url}`,
     smallImageText: `💿  ${song.album["#text"]}`,
-		instance: false,
+    instance: false,
   });
 
   log.info(`Updated song to: ${song.artist["#text"]} - ${song.name}`);
