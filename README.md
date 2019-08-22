@@ -32,6 +32,6 @@
   
 ### How to run in the background
   - Install pm2 `npm i pm2 -g`
-  - Start the app `pm2 start app.js --name="spoticord"`
+  - Start the app `pm2 start app.js --name="fmcord"`
   - Use `pm2 log spoticord` to view the logs
-  - Restart the app using `pm2 restart spoticord`
+  - Restart the app using `pm2 restart fmcord`
