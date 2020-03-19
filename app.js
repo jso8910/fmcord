@@ -2,14 +2,18 @@ const DiscordRPC = require('discord-rpc'),
       {LastFmNode} = require('lastfm'),
       log = require("fancy-log");
 
-const keys = require('./keys.json');
+const keys = require('./keys');
 
 const rpc = new DiscordRPC.Client({ transport: keys.rpcTransportType }),
       clientId = keys.appClientID,
       lastFm = new LastFmNode({ api_key: keys.lastFmKey, useragent: 'fmcord v0.0.2' });
 
-if(!keys.lastFmUsername) { log.error("Your last.fm username isn't set! Please set it in your keys.json file."); process.exit(0); }
-var trackStream = lastFm.stream(keys.lastFmUsername);
+if(!keys.lastFmUsername) {
+  log.error("Your last.fm username isn't set! Please set it in your keys.json file.");
+  process.exit(1);
+}
+
+const trackStream = lastFm.stream(keys.lastFmUsername);
 
 
 trackStream.on('nowPlaying', song => {
