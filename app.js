@@ -33,7 +33,6 @@ if(!lastFmUsername) {
 
 const trackStream = lastFm.stream(lastFmUsername);
 
-
 trackStream.on('nowPlaying', song => {
   if(!song) return;
   rpc.setActivity({
@@ -47,8 +46,6 @@ trackStream.on('nowPlaying', song => {
 
   log.info(`Updated song to: ${song.artist["#text"]} - ${song.name}`);
 });
-
-
 
 rpc.on('ready', () => {
   log(`Connected to Discord! (${clientId})`);
