@@ -2,18 +2,24 @@ const DiscordRPC = require('discord-rpc'),
       {LastFmNode} = require('lastfm'),
       log = require("fancy-log");
 
-const keys = require('./keys');
+const {
+  appClientID,
+  imageKeys,
+  rpcTransportType,
+  lastFmKey,
+  lastFmUsername,
+} = require('./config');
 
-const rpc = new DiscordRPC.Client({ transport: keys.rpcTransportType }),
-      clientId = keys.appClientID,
-      lastFm = new LastFmNode({ api_key: keys.lastFmKey, useragent: 'fmcord v0.0.2' });
+const rpc = new DiscordRPC.Client({ transport: rpcTransportType }),
+      clientId = appClientID,
+      lastFm = new LastFmNode({ api_key: lastFmKey, useragent: 'fmcord v0.0.2' });
 
-if(!keys.lastFmUsername) {
-  log.error("Your last.fm username isn't set! Please set it in your keys.json file.");
+if(!lastFmUsername) {
+  log.error("Your last.fm username isn't set! Please set it in your config.json file.");
   process.exit(1);
 }
 
-const trackStream = lastFm.stream(keys.lastFmUsername);
+const trackStream = lastFm.stream(lastFmUsername);
 
 
 trackStream.on('nowPlaying', song => {
@@ -21,8 +27,8 @@ trackStream.on('nowPlaying', song => {
   rpc.setActivity({
     details: `🎵  ${song.name}`,
     state: `👤  ${song.artist["#text"]}`,
-    largeImageKey: keys.imageKeys.large,
-    smallImageKey: keys.imageKeys.small,
+    largeImageKey: imageKeys.large,
+    smallImageKey: imageKeys.small,
     largeImageText: `⛓  ${song.url}`,
     smallImageText: `💿  ${song.album["#text"]}`,
     instance: false,
