@@ -1,6 +1,6 @@
 const DiscordRPC = require('discord-rpc'),
       { LastFmNode } = require('lastfm'),
-      fs = require('fs');
+      fs = require('fs'),
       log = require("fancy-log");
 
 if(fs.existsSync('keys.json')) {
