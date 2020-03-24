@@ -12,7 +12,8 @@
   - Clone the repo `git clone https://github.com/69/fmcord.git`
   - Install the modules `npm i`
   - Open Discord
-  - Set your last.fm username in the `keys.json` file
+  - Copy `config.json.example` to `config.json`
+  - Set your last.fm username in the `config.json` file
   - Start the RPC app `node app.js`
 
 
