@@ -36,3 +36,4 @@
   - Start the app `pm2 start app.js --name="fmcord"`
   - Use `pm2 log fmcord` to view the logs
   - Restart the app using `pm2 restart fmcord`
+  - To stop it, run `pm2 stop fmcord`
