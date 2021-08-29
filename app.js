@@ -47,6 +47,10 @@ trackStream.on('nowPlaying', song => {
   log.info(`Updated song to: ${song.artist["#text"]} - ${song.name}`);
 });
 
+trackStream.on('error', error => {
+    log.error(error)
+})
+
 rpc.on('ready', () => {
   log(`Connected to Discord! (${clientId})`);
   trackStream.start();
